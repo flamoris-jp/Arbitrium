@@ -50,7 +50,7 @@ Public migration uses new commits while preserving research meaning, dataset ide
 
 Implementation migration should wait for the relevant Maidionis Core contracts so specialization-neutral code can move into Maidionis instead of being duplicated here.
 
-Repository setup and migration are tracked in [Issue #1](https://github.com/flamoris-jp/Arbitrium/issues/1).
+Repository setup and migration are tracked in [Issue #1](https://github.com/flamoris-jp/Arbitrium/issues/1) and [Research migration](docs/research-migration.md).
 
 ## Getting started
 
