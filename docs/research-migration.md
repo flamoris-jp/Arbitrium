@@ -1,6 +1,6 @@
 # Research migration
 
-Arbitrium is the public home for Decision-specific research built on the Maidionis specialization foundation.
+Arbitrium is the public home for Decision-specific research intended to use the Maidionis specialization foundation.
 
 ## What belongs in Arbitrium
 
