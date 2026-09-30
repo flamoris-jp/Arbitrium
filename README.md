@@ -2,7 +2,7 @@
 
 **A Maidionis Decision specialization for bounded advisory judgments over supplied evidence.**
 
-Arbitrium is the first Decision specialization built on Maidionis.
+Arbitrium is intended to become the first Decision specialization built on Maidionis.
 
 It owns Decision-specific TaskSpecs, curricula, experiment reports, measured results, failure analysis, and specialization metadata. Specialization-neutral model/training/evaluation infrastructure belongs in Maidionis. Workflow execution and runtime orchestration belong in FLAMORIS AI Runtime.
 
