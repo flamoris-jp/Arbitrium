@@ -4,6 +4,18 @@ This repository is part of the FLAMORIS ecosystem.
 
 AI agents and human contributors should inspect the current repository before making substantial changes. Do not assume that setup, build, deployment, service names, paths, configuration, or architecture match another FLAMORIS repository.
 
+## Arbitrium-specific boundaries
+
+- Arbitrium is the Decision specialization for Maidionis.
+- Keep Decision-specific TaskSpecs, curricula, experiment reports, measured results, failure analysis, and specialization metadata in Arbitrium.
+- Keep reusable specialization-neutral model, training, evaluation, checkpoint, artifact, and interface mechanisms in Maidionis.
+- Keep Workflow execution, scheduling, shared execution state, and model execution in FLAMORIS AI Runtime.
+- Preserve dataset identity, hashes, seeds, split definitions, metric meaning, and known failures when migrating research.
+- Keep unsuccessful research results alongside successful diagnostics.
+- Do not describe train-only memorization as held-out generalization.
+- Use new public commits for migrated material rather than importing earlier repository history.
+- Do not copy build/test commands from earlier research until the corresponding implementation exists and is verified here.
+
 ## Core principles
 
 1. **Current implementation is authoritative**
