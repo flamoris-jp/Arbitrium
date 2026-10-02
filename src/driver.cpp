@@ -2,6 +2,7 @@
 #include "maidionis/training.h"
 #include "maidionis/artifact.h"
 #include <iostream>
+#include <limits>
 #include <sys/resource.h>
 using namespace maidionis;
 int main(int argc,char** argv){try {
@@ -15,6 +16,20 @@ int main(int argc,char** argv){try {
     std::cout<<canonical(Json{{"ids",ids},{"segments",segments}});return 0;
   }
   if(argc==2&&std::string(argv[1])=="build-identity"){std::cout<<canonical(Json{{"build_digest",std::string(ARBITRIUM_BUILD_DIGEST)}});return 0;}
+  if(argc==3&&std::string(argv[1])=="composition-self-test"){
+    auto c=arbitrium::composition(argv[2]);
+    auto logits=torch::zeros({2,4},torch::TensorOptions().dtype(torch::kFloat32).requires_grad(true));
+    Batch batch;batch.targets=torch::full({2},-123,torch::kInt64);batch.target_mask=torch::zeros({2,1},torch::kFloat32);
+    auto loss=c.objective(logits,batch);loss.backward();auto gradient=logits.grad();
+    if(!torch::isfinite(loss).item<bool>()||!gradient.slice(1,0,3).eq(0).all().item<bool>()||!gradient.slice(1,3,4).gt(0).all().item<bool>())throw std::runtime_error("masked Decision/answerability gradient");
+    if(c.decode(torch::zeros({4},torch::kFloat32))["diagnostic_label"]!="retry")throw std::runtime_error("canonical Decision tie");
+    for(float value:{std::numeric_limits<float>::infinity(),std::numeric_limits<float>::quiet_NaN(),1000001.f}){
+      auto bad=torch::zeros({4},torch::kFloat32);bad[0]=value;bool rejected=false;
+      try{c.decode(bad);}catch(const std::invalid_argument&){rejected=true;}
+      if(!rejected)throw std::runtime_error("unbounded/nonfinite Decision logits accepted");
+    }
+    std::cout<<canonical(Json{{"masked_gradient",true},{"bounded_decode",true},{"canonical_tie",true}});return 0;
+  }
   if(argc==10&&std::string(argv[1])=="infer"){
     auto c=arbitrium::composition(argv[2]);ValidationContext validation{argv[4],true,"offline_evaluation",size_t(std::stoull(argv[5]))};
     auto bundle=validate_bundle(argv[3],c,validation);
@@ -40,7 +55,7 @@ int main(int argc,char** argv){try {
     auto delta=model_construction_count()-before;if(delta)throw std::runtime_error("metadata validation constructed a model");
     std::cout<<canonical(Json{{"manifest_digest",bundle.digest()},{"parameter_bytes",bundle.parameter_bytes()},{"model_constructions",delta}});return 0;
   }
-  if(argc!=10||std::string(argv[1])!="train")throw std::invalid_argument("usage: tinybeat_driver train dataset digest checkpoint-root output epochs-this-call resume [fault]");
+  if(argc!=10||std::string(argv[1])!="train")throw std::invalid_argument("usage: arbitrium_driver train dataset digest checkpoint-root output epochs-this-call resume config-json fault");
   auto c=arbitrium::composition(argv[2]);auto data=training_data(argv[2],argv[3],c);TrainingConfig config;auto cfg=parse_json(read_file(argv[8],65536));
   if(cfg.size()!=8||cfg["schema_version"]!="arbitrium.research-training.v1")throw std::invalid_argument("training config shape");
   config.seed=cfg.at("seed");config.epochs=cfg.at("epochs");config.learning_rate=cfg.at("learning_rate");config.batch_size=cfg.at("batch_size");config.patience=cfg.at("patience");config.weight_decay=cfg.at("weight_decay");config.selection_scope=cfg.at("selection_scope");
@@ -61,4 +76,3 @@ int main(int argc,char** argv){try {
   summary["dev_logits"]=Json::array();for(const auto& row:data.development_rows()){auto batch=c.encode({row});auto logits=result.best_model->forward(batch).flatten();summary["dev_logits"].push_back({logits[0].item<double>(),logits[1].item<double>(),logits[2].item<double>(),logits[3].item<double>()});}
   summary["final_logits"]=final_logits;summary["best_logits"]=best_logits;files["summary.json"]=canonical(summary);publish_tree(argv[5],files);std::cout<<canonical(summary);return 0;
 }catch(const std::exception& e){std::cerr<<"native operation rejected: "<<e.what()<<"\n";return 1;}}
-

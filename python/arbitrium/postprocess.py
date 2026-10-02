@@ -3,9 +3,9 @@ import math
 LABELS=('retry','fallback','stop')
 GRID=(.50,.55,.60,.65,.70,.75,.80,.85,.90,.95,.99)
 def postprocess(raw,choices=LABELS,*,temperature=1.,answer_temperature=1.,tau_p=None,tau_q=None,accept_none=True):
-    if len(raw)!=4 or any(type(v) not in (int,float) or not math.isfinite(v) for v in raw):raise ValueError('finite four logits')
+    if len(raw)!=4 or any(type(v) not in (int,float) or not -1e6<=v<=1e6 for v in raw):raise ValueError('bounded finite four logits')
     if len(choices)!=3 or set(choices)!=set(LABELS):raise ValueError('exact choices')
-    if any(not math.isfinite(t) or not math.exp(-4)<=t<=math.exp(4) for t in (temperature,answer_temperature)):raise ValueError('temperature range')
+    if any(type(t) not in (int,float) or not math.exp(-4)<=t<=math.exp(4) for t in (temperature,answer_temperature)):raise ValueError('temperature range')
     if type(accept_none) is not bool:raise ValueError('gate type')
     if accept_none:
         if tau_p is not None or tau_q is not None:raise ValueError('accept-none gates')

@@ -29,6 +29,7 @@ def split_for(family):
     return SPLITS[sum(bucket>=b for b in (6000,7500,8500,9000))]
 
 def dataset(name):
+    if type(name) is not str or name not in loads(read(ROOT/'dependency.lock.json',65536))['datasets']:raise ValueError('unregistered legacy dataset')
     verify_archive()
     base=ARCHIVE/'examples/education'/name
     raw=read(base/'manifest.json',4*2**20);m=loads(raw,4*2**20)
