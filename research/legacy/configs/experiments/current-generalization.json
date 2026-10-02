@@ -1,0 +1,9 @@
+{
+  "schema_version": "arbitrium.research-training.v1",
+  "selection_scope": "dev",
+  "epochs": 120,
+  "learning_rate": 0.003,
+  "batch_size": 16,
+  "patience": 20,
+  "weight_decay": 0.01
+}

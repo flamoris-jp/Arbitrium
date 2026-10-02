@@ -1,0 +1,29 @@
+{
+  "schema_version": "arbitrium.result.v1",
+  "request_id": "example-recovery-001",
+  "task_id": "runtime.recovery.v1",
+  "artifact_id": "illustrative-only",
+  "kind": "choice",
+  "status": "abstain",
+  "verdict": null,
+  "probabilities": [
+    {
+      "label": "retry",
+      "probability": 0.92
+    },
+    {
+      "label": "fallback",
+      "probability": 0.06
+    },
+    {
+      "label": "stop",
+      "probability": 0.02
+    }
+  ],
+  "score": null,
+  "confidence": null,
+  "answerability": 0.42,
+  "reason_code": "low_answerability",
+  "calibration_id": "illustrative-only",
+  "error": null
+}

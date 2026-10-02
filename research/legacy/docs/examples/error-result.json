@@ -1,0 +1,20 @@
+{
+  "schema_version": "arbitrium.result.v1",
+  "request_id": null,
+  "task_id": null,
+  "artifact_id": null,
+  "kind": null,
+  "status": "error",
+  "verdict": null,
+  "probabilities": [],
+  "score": null,
+  "confidence": null,
+  "answerability": null,
+  "reason_code": null,
+  "calibration_id": null,
+  "error": {
+    "code": "invalid_request",
+    "retryable": false,
+    "message": "Request JSON is malformed."
+  }
+}
