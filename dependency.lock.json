@@ -1,0 +1,12 @@
+{
+  "core_build_digest": "0107e8b2f29c66225d8b7f8ecac049d62659c597f380632970c4322a77ccc5d1",
+  "core_baseline": "700e27d2cf8c487cab5fb6b6f0fe68d952aae0e0",
+  "core_amendment": "Explicit compiled partition profiles required; see companion PR.",
+  "legacy_inventory_digest": "418e92db660c2367a9b71244b9272d9bd460576042d010eac8eee103ef762780",
+  "datasets": [
+    "recovery-current-tiny-v1",
+    "recovery-current-diagnostic-v1",
+    "recovery-current-grouped-v1",
+    "controlled-recovery-1000-v1"
+  ]
+}

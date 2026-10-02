@@ -1,0 +1,29 @@
+{
+  "schema_version": "arbitrium.task.v1",
+  "task_id": "runtime.recovery.v1",
+  "kind": "choice",
+  "question": "What should the workflow do next?",
+  "description": "Choose an advisory next step under the supplied supported recovery policy. Missing decisive evidence is unanswerable.",
+  "policy_scope": "Fatal violations override retry; safe retry with remaining budget precedes an explicitly permissible fallback; otherwise stop. No arbitrary policy language is supported.",
+  "canonical_policy": "Stop on a fatal policy violation. Otherwise retry a repeat-safe operation when the provider is healthy or its failure is transient, while attempts remain. If retry is not permitted, use an available allowed alternative. Stop if neither option is permitted.",
+  "labels": [
+    {
+      "id": "retry",
+      "description": "Repeat the same operation.",
+      "anchor": null
+    },
+    {
+      "id": "fallback",
+      "description": "Use an explicitly available and allowed alternative.",
+      "anchor": null
+    },
+    {
+      "id": "stop",
+      "description": "Stop this workflow attempt.",
+      "anchor": null
+    }
+  ],
+  "positive_label": null,
+  "max_sequence_length": 256,
+  "assembly_version": "fields.v1"
+}

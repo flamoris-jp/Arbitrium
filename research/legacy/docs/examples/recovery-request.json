@@ -1,0 +1,15 @@
+{
+  "schema_version": "arbitrium.request.v1",
+  "request_id": "example-recovery-001",
+  "task_id": "runtime.recovery.v1",
+  "kind": "choice",
+  "language": "en",
+  "state": "The operation is safe to repeat. The provider suffered a transient timeout. Two attempts remain. An alternative provider is available and allowed. No fatal policy violation occurred.",
+  "policy": "Stop on a fatal policy violation. Otherwise retry a repeat-safe operation when the provider is healthy or its failure is transient, while attempts remain. If retry is not permitted, use an available allowed alternative. Stop if neither option is permitted.",
+  "question": "What should the workflow do next?",
+  "choices": [
+    "retry",
+    "fallback",
+    "stop"
+  ]
+}

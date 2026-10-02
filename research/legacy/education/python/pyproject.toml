@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arbitrium-education"
+version = "0.1.0"
+description = "External GPT-OSS education and evaluation tooling for Arbitrium"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27",
+  "pydantic>=2.9",
+  "PyYAML>=6.0",
+  "jsonschema>=4.23",
+  "sentencepiece>=0.2.1,<0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "ruff>=0.8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.setuptools.package-data]
+arbitrium_education = ["schemas/*.json"]

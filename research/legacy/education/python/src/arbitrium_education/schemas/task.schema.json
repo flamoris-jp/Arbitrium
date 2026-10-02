@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arbitrium.invalid/contracts/task.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "arbitrium.task.v1"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "kind": {
+      "enum": [
+        "choice",
+        "binary",
+        "ordinal"
+      ]
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_policy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8192
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9._:-]+$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "anchor": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "anchor"
+        ]
+      },
+      "minItems": 2,
+      "maxItems": 16
+    },
+    "positive_label": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "max_sequence_length": {
+      "const": 256
+    },
+    "assembly_version": {
+      "const": "fields.v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "kind",
+    "question",
+    "description",
+    "policy_scope",
+    "canonical_policy",
+    "labels",
+    "positive_label",
+    "max_sequence_length",
+    "assembly_version"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "ordinal"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "labels": {
+            "items": {
+              "properties": {
+                "anchor": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "positive_label": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "labels": {
+            "items": {
+              "properties": {
+                "anchor": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "binary"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "positive_label": {
+            "const": "true"
+          },
+          "labels": {
+            "minItems": 2,
+            "maxItems": 2,
+            "prefixItems": [
+              {
+                "properties": {
+                  "id": {
+                    "const": "false"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "id": {
+                    "const": "true"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "positive_label": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

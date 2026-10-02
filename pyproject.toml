@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "arbitrium-education"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["maidionis-education==0.1.0"]
+[tool.setuptools.packages.find]
+where = ["python"]

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arbitrium.invalid/contracts/request.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "arbitrium.request.v1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "kind": {
+      "enum": [
+        "choice",
+        "binary",
+        "ordinal"
+      ]
+    },
+    "language": {
+      "const": "en"
+    },
+    "state": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384
+    },
+    "policy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8192
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[A-Za-z0-9._:-]+$"
+      },
+      "minItems": 2,
+      "maxItems": 16,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "task_id",
+    "kind",
+    "language",
+    "state",
+    "policy",
+    "question",
+    "choices"
+  ],
+  "description": "JSON character limits are coarse bounds; UTF-8 byte limits, nonblank text and task semantics are additionally mandatory."
+}

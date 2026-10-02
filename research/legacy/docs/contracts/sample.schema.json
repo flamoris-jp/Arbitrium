@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arbitrium.invalid/contracts/sample.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "arbitrium.sample.v1"
+    },
+    "sample_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "family_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "dev",
+        "calibration_fit",
+        "calibration_select",
+        "test"
+      ]
+    },
+    "input": {
+      "$ref": "request.schema.json"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "answerable": {
+          "type": "boolean"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "answerable",
+        "label"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "answerable": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9._:-]+$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "label": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[A-Za-z0-9._:-]+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "provenance_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "review_status": {
+      "const": "verified"
+    },
+    "verification_kind": {
+      "enum": [
+        "controlled_oracle",
+        "audited_paraphrase",
+        "human",
+        "execution_adjudicated"
+      ]
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "sample_id",
+    "family_id",
+    "task_id",
+    "split",
+    "input",
+    "target",
+    "concepts",
+    "difficulty",
+    "provenance_id",
+    "review_status",
+    "verification_kind",
+    "supersedes"
+  ]
+}

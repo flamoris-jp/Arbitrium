@@ -1,0 +1,29 @@
+teacher:
+  provider: openai_compatible
+  base_url_env: ARBITRIUM_TEACHER_BASE_URL
+  api_key_env: ARBITRIUM_TEACHER_API_KEY
+  model: gpt-oss
+
+generation:
+  role: curriculum_teacher
+  temperature: 0.8
+  max_samples_per_batch: 64
+
+review:
+  role: adversarial_reviewer
+  temperature: 0.2
+  require_explicit_accept_reject: true
+
+education:
+  preserve_rationale_for_provenance: true
+  include_rationale_in_student_input: false
+  freeze_before_training: true
+
+evaluation:
+  high_confidence_error_threshold: 0.80
+  benchmark_is_teacher_independent: true
+
+notes:
+  - This file defines intent only until the provider adapter/config loader is implemented.
+  - Secrets and concrete endpoint URLs must not be committed.
+  - The GPT-OSS teacher is never required for normal Arbitrium inference.

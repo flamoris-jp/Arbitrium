@@ -1,0 +1,791 @@
+{
+  "format": "arbitrium.legacy-inventory.v1",
+  "license": "Apache-2.0 original project material; third-party dependencies excluded",
+  "files": [
+    {
+      "path": "configs/education-gpt-oss.yaml",
+      "sha256": "be1025c2810e28d3e5a872846ad2ed2bf472466ecb48ad53148461db03b818aa",
+      "bytes": 781,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "configs/experiments/current-diagnostic.json",
+      "sha256": "23ec7e4959ff3fc57adebf48cf5fd419da1728831bf6769d4045cf2822f5dc1f",
+      "bytes": 204,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "configs/experiments/current-generalization.json",
+      "sha256": "22273565d3b1fbc195a43ab22212353577f496a9e60e4fb4075427c0014318a4",
+      "bytes": 190,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "configs/experiments/current-tiny.json",
+      "sha256": "2186664bfb369dfd5223f8fb10462ebe73ee3cf9839054c0616883240f7aad56",
+      "bytes": 202,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "configs/tiny.yaml",
+      "sha256": "1a0d4f45b99d99141b26e91f0ac02bc24e0cfcdf61fb0756f182da4405a99f87",
+      "bytes": 492,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "5ebd08aebe71d203eee132140e3bfe3565e2bb20bd9b4ecff7d640d10b30a150",
+      "bytes": 4337,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/artifact-format.md",
+      "sha256": "4b1dd59ed5bea3fb50699ca6b9d8932c01c5fd1b12802f3d2e4c098cc32881de",
+      "bytes": 6398,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/build.md",
+      "sha256": "ea18498f4be15d67879459b191d8d6d006c1f7e1860bef2690ac4eb8796fe05c",
+      "bytes": 1976,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/calibration.md",
+      "sha256": "392a6336e85a04f30b78f474a77d9c8d17dd2d8b6ec60f67913e80428e3101f5",
+      "bytes": 4110,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/checkpoint-repair-2026-09-30.md",
+      "sha256": "1d7936c90a3ca23e0ad5866d481e849a5d3a77cb1f721cf4dbec2e2f07e568c3",
+      "bytes": 4880,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/contracts/request.schema.json",
+      "sha256": "8b0b5e700676c9a16e6488eafddec547172289ce55babc863b9772863e73d58f",
+      "bytes": 1528,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/contracts/result.schema.json",
+      "sha256": "3cb3842722a5e96673fdb5da41b97ebadc345a7e66ad86b3116218b15b842bf1",
+      "bytes": 9388,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/contracts/sample.schema.json",
+      "sha256": "94319588db7057d118fd4435bd6fdfe5f9b463bb569791d29db750b36465edf2",
+      "bytes": 3199,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/contracts/task.schema.json",
+      "sha256": "26685a5c45eb61535f45839b6875a5a2af8221f0494bcd872c4a5b019f3301cd",
+      "bytes": 3789,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/dataset-design.md",
+      "sha256": "d5ba600725312e9c696063e81f3e399bff2e98ad0d506e10afa632d72c0af044",
+      "bytes": 7988,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/dependencies.md",
+      "sha256": "d570230b8ad23353c8b497e501497bb1c32dc1f5090980abc10c4844ca26bd8a",
+      "bytes": 3406,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/design-review.md",
+      "sha256": "4a2c964988a2ab9d0220f8639fe9d4732f7fe2103e88ce198e25d2396a77fc22",
+      "bytes": 8609,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/education-system.md",
+      "sha256": "75f47d532006b07130610347f28a44da002ebca1e4868ecc53d87de2c49de3a3",
+      "bytes": 8925,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "1221a244764c292bce5b6d0a82fec330de806e09e11ed9355453e50d5cf3c6d8",
+      "bytes": 7238,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/README.md",
+      "sha256": "349b93fb0d96713087f47f721ee939dd50327d9489f896b360d6f3512ba8f8ef",
+      "bytes": 853,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/abstain-result.json",
+      "sha256": "921fe263a90b417d34a2455deb6fae92c8fea1f5f2f2c53755903a1e81bd6895",
+      "bytes": 598,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/error-result.json",
+      "sha256": "4c72f3dbbcc388f3e9458908d6686edef2441addb3fa25a62df3a567f18003a4",
+      "bytes": 419,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/recovery-request.json",
+      "sha256": "38c7b330b3b55e034d124a7b47396efbf6acf8b3b4acd1917ca65d1dc1590087",
+      "bytes": 743,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/recovery-result.json",
+      "sha256": "e1b3400ddc9cf10d670987e5ffe04a0820cffd6b2813aaaf91f1d1798f9b7742",
+      "bytes": 581,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/recovery-sample.json",
+      "sha256": "4d5f9497eef027cd3056645f7189ca328d10d7d79d4d37d7c6b2c16bc9f8072d",
+      "bytes": 1255,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/examples/recovery-task.json",
+      "sha256": "a61a9efa2c85020d23f59eef7ab810b9c5ab55152422f19fc37b1386a7ab4cf0",
+      "bytes": 1218,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiment-001.md",
+      "sha256": "e42e9c5ccc44e0fa56c10b0da28d25c9a7124b6686458a0b2d688f8b0a31110b",
+      "bytes": 5923,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiment-002.md",
+      "sha256": "39553e11b94d720b7d757e15fabe7c077435ba4bab7317257b3e8781ab6da460",
+      "bytes": 12709,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiments/experiment-001-results.json",
+      "sha256": "f4fb5904393119b5e484839d9446266cef0aebaafc44def1dd08f19f83591b11",
+      "bytes": 6948,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiments/experiment-002-diagnostic-results.json",
+      "sha256": "5714c89e23830113627c8d0f0a61bddf7f5d1070bac434ee6eba65cf67217b85",
+      "bytes": 44495,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiments/experiment-002-grouped-results.json",
+      "sha256": "2ae6559d5cedc2ce9d4ded8d2f77c18db673f115febb7e3f6ce80e85ed037573",
+      "bytes": 29672,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/experiments/experiment-002-tiny-results.json",
+      "sha256": "167e8f52784b4dd333a70e2d781d4a4f9736143b4e4523bc6962f8a07986e85c",
+      "bytes": 70258,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "19034c07c73596ad20c5240c82d9aae2c490186e4a8651be4e9375b50996f95c",
+      "bytes": 9101,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/integration.md",
+      "sha256": "c515204ed7f638a947ee6a1c390f91d057bf53ae751fe4e6375ed8545d126c9e",
+      "bytes": 3593,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/interfaces.md",
+      "sha256": "eb1a6c71ea14ea9f8cf285044275d73ee083733ffc6f96efb186f0fae7e78dac",
+      "bytes": 7833,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/model-design.md",
+      "sha256": "1ee7c450095315d92742abf9fd9c917518ab64cbf9671c815d91cf9e0735067c",
+      "bytes": 5257,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/operations.md",
+      "sha256": "0eb0c8837b889ade2682a8caf7467523061e2619f68f78de7a2a7f340c343c98",
+      "bytes": 4930,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/requirements.md",
+      "sha256": "17f06f1cd0bc8cccfde16c42d89e33b8623d6e3b189b544a03115dd2b1bdfca5",
+      "bytes": 4702,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "sha256": "1d1089487ddf4bff88cf9d18d41eb37be51ab5a98797d5ee833de22c575a590e",
+      "bytes": 1892,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/security.md",
+      "sha256": "0a9667534278a9e7a73828294d099467b603075ccc8a492df3f4f316fbec5c81",
+      "bytes": 3513,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/sources.md",
+      "sha256": "12be72d0b0e132fa2b6edac8abcfc4f0336d9cb56d82c13e11270c7e2faca154",
+      "bytes": 2026,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/teacher-loop.md",
+      "sha256": "001d4b39eb8d396c3e9e97ee28d83c4203fed77d0e4e68831a92e46f4ef78cb2",
+      "bytes": 1421,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/tokenizer.md",
+      "sha256": "716b557d51e982132d86418500a96f619e8812a71a0987e1a1341108c0a5f7af",
+      "bytes": 4154,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "docs/training.md",
+      "sha256": "4411bb4838c8f878ffe712d97cf00e0761be83ba0e48d148545c9431f91705c1",
+      "bytes": 6866,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/pyproject.toml",
+      "sha256": "06c476d3665c5e47d2a046d7573be6ba4d980c9f761607a33ca0d9975fe5c9be",
+      "bytes": 684,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/__init__.py",
+      "sha256": "35eaa571f99f06dcf6a80564fe7ad3dc3e6ba5ee578c6d3a7907ac8b2fdd60c3",
+      "bytes": 80,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/contracts.py",
+      "sha256": "8e509f0a61d7f0a54ba6526e768615d2d63369d299a69a9488fb10392fccb810",
+      "bytes": 5840,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/current_curriculum.py",
+      "sha256": "72c27c40eab68eeaf186c43ad92994fd56372d1a896027e482794a61193ec2ed",
+      "bytes": 8487,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/dataset.py",
+      "sha256": "bca8079c1f582b3eaf38076ba9c93e31b645904e35d684fffe838f9be72d096c",
+      "bytes": 8566,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/experiment.py",
+      "sha256": "3653615b955bcc141cdb0f9377d2f008bb1e192af68c3e0eb30b8700be3c06fd",
+      "bytes": 10114,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/gpt_oss.py",
+      "sha256": "07f3f217a20733356405ed66a94e73df6b5a355ac380acd63fa5c48d190899c6",
+      "bytes": 9128,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/journal.py",
+      "sha256": "0b80c0c6bf58bed4da18a10d1ea9704d98118a6f198bdcdc8460949c7372fdfd",
+      "bytes": 3032,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/oracle.py",
+      "sha256": "24dc2cf355fb570a65e6449323e123bc82f256772fd969c3ef5d0d1331f17a21",
+      "bytes": 3945,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/orchestrator.py",
+      "sha256": "0c5e0b6120a0f31d6bde7c3f97ed0d6db7da247f93f6528919d31d5f110c30a9",
+      "bytes": 1859,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/schemas/request.schema.json",
+      "sha256": "8b0b5e700676c9a16e6488eafddec547172289ce55babc863b9772863e73d58f",
+      "bytes": 1528,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/schemas/result.schema.json",
+      "sha256": "3cb3842722a5e96673fdb5da41b97ebadc345a7e66ad86b3116218b15b842bf1",
+      "bytes": 9388,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/schemas/sample.schema.json",
+      "sha256": "94319588db7057d118fd4435bd6fdfe5f9b463bb569791d29db750b36465edf2",
+      "bytes": 3199,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/schemas/task.schema.json",
+      "sha256": "26685a5c45eb61535f45839b6875a5a2af8221f0494bcd872c4a5b019f3301cd",
+      "bytes": 3789,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/teacher.py",
+      "sha256": "dcc7f3bec62370efedac30f2348dab1288f5a45d29a60664e888e14951a47059",
+      "bytes": 1519,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/tiny_curriculum.py",
+      "sha256": "05588ed6b66916989d51fb4a250da38e5ee792d6eb68ad2fa93b270f9d887797",
+      "bytes": 3024,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/src/arbitrium_education/tokenizer.py",
+      "sha256": "52ac314af8f078649187856036947ca26c8a2e97d31eb830e3837ec9e1b574b8",
+      "bytes": 6529,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_contracts_oracle.py",
+      "sha256": "e4f23e98a6cd81185888b85347d2d37881befae37da629eb7a4087afff567fc3",
+      "bytes": 3890,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_current_curriculum.py",
+      "sha256": "fa83b95159b4e0891c0da63f1b6a9d84ab4757f2a3b7845922ea434c9356d3c8",
+      "bytes": 4370,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_dataset.py",
+      "sha256": "814c9c7570c2aab9e89bac3f49d8ade35ed08dbb3b17b660ede9f208003d32a8",
+      "bytes": 3261,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_experiment.py",
+      "sha256": "0688974d1af58635333bcdb533dfbb8b1ce55ef4a10a689cf03f519842579cb3",
+      "bytes": 2607,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_orchestrator.py",
+      "sha256": "dc7500b38b161498a633d73760261c79b2770ef54fd4b4ac65705fef4b7f7efc",
+      "bytes": 4446,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "education/python/tests/test_tokenizer.py",
+      "sha256": "f58e0a300bc4e149c25fd9744d536b3a283a55760abea2f1218a0270aa883c6a",
+      "bytes": 2326,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/README.md",
+      "sha256": "61f2c2f3b2b47e1fe62fe3d2dd2fa73aefd3f4023e657b2de05922b85b190584",
+      "bytes": 519,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/calibration_fit.jsonl",
+      "sha256": "f7048544138db1631353092768067a8550a22ad5c48e18a949890fdb273b3941",
+      "bytes": 77019,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/calibration_select.jsonl",
+      "sha256": "ee64981a2b91399a273fe8b140ab295549af8867e9f2a361d82c75065f007d9b",
+      "bytes": 78401,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/dev.jsonl",
+      "sha256": "7c0a80b62664df1adaebbc4c837614e129c8497a0dee012a6423dfd2cd2b21d4",
+      "bytes": 135127,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/families.jsonl",
+      "sha256": "65437847c23cf91f77d69ad3e9294ea57cae2a6e7e02ce43e1ba86c5760c1305",
+      "bytes": 2595,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/manifest.json",
+      "sha256": "bae2b565859fb576ed539e089935e4db57c82f179913e7b2daa360220acd13e9",
+      "bytes": 3110,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/provenance-index.jsonl",
+      "sha256": "48cb86159465835f7f3065d2a431fb4c6207a9d8c3e4ed6b37ff01defde43956",
+      "bytes": 1244922,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/task.json",
+      "sha256": "eea797cdc4b2bcf87c0cc081711e27180ade77049697733f65f2cdb0e90ff228",
+      "bytes": 1068,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/test.jsonl",
+      "sha256": "b7103cc6cca621e94e615c17dd9e1cc8af624eecb5453446352f1886a9aff6e7",
+      "bytes": 154970,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/controlled-recovery-1000-v1/train.jsonl",
+      "sha256": "004e1163a43179bc1e4dfe77d4a6540aa674e7a659eb4fd79ab94b0aa66dd774",
+      "bytes": 1097907,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/calibration_fit.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/calibration_select.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/dev.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/families.jsonl",
+      "sha256": "3dc02873e955fefd30afa829986ed60ff05e9b7149a68c30bfadd57aea788da3",
+      "bytes": 62,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/manifest.json",
+      "sha256": "417c2a787f6fd08e5eee3d3cc5c56da5cedc7b713fdfeced7e17af381b95275c",
+      "bytes": 2495,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/provenance-index.jsonl",
+      "sha256": "8e9cba7469be2b3afabdcdbfaac9613b0c79dad00f307b45e4858a7f0391ec38",
+      "bytes": 120896,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/task.json",
+      "sha256": "eea797cdc4b2bcf87c0cc081711e27180ade77049697733f65f2cdb0e90ff228",
+      "bytes": 1068,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/test.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-diagnostic-v1/train.jsonl",
+      "sha256": "188fc934cb5ec513a1a110474d37aba198d1da2d262f3322a7d42e9cd03e819e",
+      "bytes": 106096,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/calibration_fit.jsonl",
+      "sha256": "d90a1fa170a8a33e2cf45035d6e556ac73d5db15e2523bcc904903e06694ecb6",
+      "bytes": 4778,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/calibration_select.jsonl",
+      "sha256": "423782fe03839869d0c8e83f54adee3e56ece518c6814a2dd44cadb1d971fcb3",
+      "bytes": 5808,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/dev.jsonl",
+      "sha256": "f916fb364b8d26afbb8470a153cab75d4525a92b852c198d8514dce04d750a52",
+      "bytes": 16436,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/families.jsonl",
+      "sha256": "c8588aabf99f6d1e1a055bef259bd23e77dd10e2faebd4c0ded59dcb408bcb30",
+      "bytes": 1438,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/manifest.json",
+      "sha256": "66e53f042b2e5918c4d96dd5cf5e83f92e3d67e4aec8dfea1dd2e30bbda56c85",
+      "bytes": 2866,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/provenance-index.jsonl",
+      "sha256": "8e9c24726554b752140cb76a606fcd4417573608e3cea350f4d390e3867ebecb",
+      "bytes": 90167,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/task.json",
+      "sha256": "eea797cdc4b2bcf87c0cc081711e27180ade77049697733f65f2cdb0e90ff228",
+      "bytes": 1068,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/test.jsonl",
+      "sha256": "944c73136390014d2cd1d3820c9c8cd59e9b35a688cba7e0ff912416a9840913",
+      "bytes": 17722,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-grouped-v1/train.jsonl",
+      "sha256": "59c373a84ee8d39c96c3094770d8ba0d5f958a093bc010ccc36a0a82e5f7d0d3",
+      "bytes": 40232,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/calibration_fit.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/calibration_select.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/dev.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/families.jsonl",
+      "sha256": "32c98059e7d17c9ca26b7918b0cbf4850e3f9315099b2ab9e73e450b15f6fca7",
+      "bytes": 56,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/manifest.json",
+      "sha256": "1ba240825e9ec17feb880d0696757d47c5ca117f4d7d740c301d0ffff02b1619",
+      "bytes": 2565,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/provenance-index.jsonl",
+      "sha256": "3581c3607eceb5e7dec227f3a0aef4cfbf113a7824779f3ca72316fe2c8a76a5",
+      "bytes": 34396,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/task.json",
+      "sha256": "eea797cdc4b2bcf87c0cc081711e27180ade77049697733f65f2cdb0e90ff228",
+      "bytes": 1068,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/test.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "examples/education/recovery-current-tiny-v1/train.jsonl",
+      "sha256": "147d6f88daf94933fa97effaa740ca4ad978cc9c5a6e4ee2166373627b0769c5",
+      "bytes": 25907,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/calibration.h",
+      "sha256": "4095a85b17cef9b8fa88656707c1fd95cd7073bd52e04fe23fd5fdf09ea22aad",
+      "bytes": 973,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/contracts.h",
+      "sha256": "a5f88fc79f9fe547055c3683b1c09e344f828afb5960489ca40c0af1ed811dc5",
+      "bytes": 1854,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/data.h",
+      "sha256": "ecba00d9a4c369fd375e6e376198624ee3b2b5e8b0d4cd05ad44214be874a596",
+      "bytes": 976,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/metrics.h",
+      "sha256": "9fa8189826fa7f220b4fe90280b7da5092add81c228ec5d12f05655d3125a268",
+      "bytes": 772,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/model.h",
+      "sha256": "72e749eb858286e6c5520c14c95d37667770b701b05fb410d2e37f06fffd8cff",
+      "bytes": 2196,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/postprocess.h",
+      "sha256": "29b2943a5127f109af2273c871023ca9b0ffd4384c79a7f1b85ca472ce80f2de",
+      "bytes": 845,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/tokenizer.h",
+      "sha256": "d95a44f02630199be3b93e5c2b9ebe7c17782ad7bd9570eab87e1b3652324a10",
+      "bytes": 817,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "include/arbitrium/training.h",
+      "sha256": "2ccd3958881b7b65c3a46c09815170c51aced8a32b6db937992e09913410217e",
+      "bytes": 1641,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/app/contract_check.cpp",
+      "sha256": "729e50553ab6e4c92a6f6be60c8a0106a7623a779286dbbe00593761d4c4dc9f",
+      "bytes": 776,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/app/experiment.cpp",
+      "sha256": "d668f7eef86154eada2c671060ce4d25c790594ea1a05b30ce2eed7f2088de02",
+      "bytes": 9522,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/app/smoke.cpp",
+      "sha256": "15515c00b0f745f5a488e928b550e4ab99f9ce1de28497aad37aef1934004a96",
+      "bytes": 406,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/app/tokenize.cpp",
+      "sha256": "670ed1a1c01950e20249a74b71844b7b809f8c06012ab8952dd8464d744d7e89",
+      "bytes": 894,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/calibration/calibration.cpp",
+      "sha256": "9f77014fe62db981771a572cfc9dd1fa734e1c8d1e5b038b08515b156b1e0615",
+      "bytes": 4895,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/contracts/contracts.cpp",
+      "sha256": "29a752e766866431b968b7e4b40908cd6e19361fde2813ec7cc4c5e1c73294d8",
+      "bytes": 14639,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/data/data.cpp",
+      "sha256": "63c885b34fc9af920e1e12f20e76e78e4c0ccacdbbf11e43a0629e6af73cc27a",
+      "bytes": 4121,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/evaluation/metrics.cpp",
+      "sha256": "2d768e5e224058e61ba8de14cf6b091c123628543a1d83ed12e92d819c37f150",
+      "bytes": 5816,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/inference/postprocess.cpp",
+      "sha256": "2ea47372788a1be89444c63dc3c63b4c8a640fd4d2f4f65b1a41a4858ee458f4",
+      "bytes": 3734,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/model/model.cpp",
+      "sha256": "4568fec63e9c2916f5254ddffce57fc9e68063041575d2c25f8860628692a0b6",
+      "bytes": 7329,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/tokenizer/tokenizer.cpp",
+      "sha256": "6775baec06a07330e05c9eb7f185c0c72976bd07a19a0362e0b8d19428976849",
+      "bytes": 4057,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "src/training/training.cpp",
+      "sha256": "8c542407e42eeb70308e369c63d6c5f991ffd357bdb634276a6d39ec3795d7d0",
+      "bytes": 12475,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/contracts_test.cpp",
+      "sha256": "a2424ea3e6630865ae1a11d9035f0fe6487c9be954c47a236923b35e92fbb91f",
+      "bytes": 7482,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/data_test.cpp",
+      "sha256": "87836bb92bd411bec35bbf0c9d6108d388c43720f4f1be1070ce50b4c41fa019",
+      "bytes": 1797,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/metrics_test.cpp",
+      "sha256": "e28755b128a0d9475be48df2f26dda0785f064009cda6b4c321d1c5b573019d4",
+      "bytes": 1759,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/model_smoke.cpp",
+      "sha256": "5495ebfd02027f333e14805ecb57a39efd88a360b10c030946c65643b8d2d17e",
+      "bytes": 4526,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/postprocess_test.cpp",
+      "sha256": "6f71dee9cd2edb552cf7508b019b28f2ed9b82baca5ae31cdf7987705ea67d3b",
+      "bytes": 3678,
+      "treatment": "exact_original_bytes"
+    },
+    {
+      "path": "tests/training_test.cpp",
+      "sha256": "dc260e689e9d6ea6dc44b58b849c61ae6393fa30c3f03378cbbceb011f765463",
+      "bytes": 4531,
+      "treatment": "exact_original_bytes"
+    }
+  ],
+  "omissions": [
+    "Original root build/instructions and administrative metadata are not public build instructions.",
+    "Historical implementation-status document omitted because it contains non-public repository coordinates.",
+    "No historical weights, tokenizer binaries, checkpoints or source Git history are supplied."
+  ]
+}

@@ -1,0 +1,24 @@
+model:
+  name: arbitrium-tiny
+  implementation: cpp
+  backend: libtorch
+  architecture: pooled_embedding_baseline
+  vocab_size: 8192
+  hidden_size: 256
+  num_choices: 3
+  max_sequence_length: 256
+
+training:
+  seed: 42
+  task: choice
+  batch_size: 64
+  learning_rate: 0.0003
+
+evaluation:
+  calibration_metrics:
+    - brier
+    - ece
+
+notes:
+  - Phase 0 starts with mean-pooled embeddings plus a linear head.
+  - Transformer encoder blocks are introduced only after the baseline is measurable.
