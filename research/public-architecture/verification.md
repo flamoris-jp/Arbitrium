@@ -38,6 +38,6 @@ The full 12-run results above are immutable observations from the implementation
 snapshot published at `b26d5d66bfdeff2f5a1991effcdef0a5a730e2b4`.
 Subsequent review fixes change the content-derived build identity, so the existing
 artifact/evidence digests must not be relabeled as results for the revised code.
-The revised head is separately verified with 18 Python/native tests and an actual
+The revised head is separately verified with 19 Python/native tests and an actual
 two-epoch lifecycle smoke; see `docs/review-a1-a3.md`. No new full 12-run numerical
 comparison or model-quality improvement is claimed by those boundary fixes.

@@ -43,3 +43,8 @@ class NativeDecision(unittest.TestCase):
         bad=self.root/'bad-partition';shutil.copytree(self.data,bad);cfg=loads((bad/'split.config.json').read_bytes());cfg['algorithm']='unknown.partition';(bad/'split.config.json').write_bytes(canonical(cfg))
         m=loads((bad/'manifest.json').read_bytes(),4*2**20);files={p.relative_to(bad).as_posix():p.read_bytes() for p in bad.rglob('*') if p.is_file() and p.name!='manifest.json'};m['files']=inventory(files);m['split_profile']['config_digest']=digest(files['split.config.json']);raw=canonical(m);(bad/'manifest.json').write_bytes(raw)
         run(DRIVER,'train',bad,digest(raw),self.root/'partition-checkpoints',self.root/'partition-output',0,0,self.cfg,'none',success=False)
+    def test_rehashed_provenance_alias_is_rejected(self):
+        bad=self.root/'bad-provenance';shutil.copytree(self.data,bad)
+        lines=(bad/'train.jsonl').read_bytes().splitlines();row=loads(lines[0]);row['provenance_id']='forged-proof';lines[0]=canonical(row).rstrip(b'\n');(bad/'train.jsonl').write_bytes(b'\n'.join(lines)+b'\n')
+        m=loads((bad/'manifest.json').read_bytes(),4*2**20);files={p.relative_to(bad).as_posix():p.read_bytes() for p in bad.rglob('*') if p.is_file() and p.name!='manifest.json'};m['files']=inventory(files);raw=canonical(m);(bad/'manifest.json').write_bytes(raw)
+        run(DRIVER,'train',bad,digest(raw),self.root/'provenance-checkpoints',self.root/'provenance-output',0,0,self.cfg,'none',success=False)

@@ -9,6 +9,7 @@ dataset/codec/objective/provider boundaries and experiment accounting.
 | Finding | Fix and regression |
 |---|---|
 | Python admitted renamed legacy family aliases while Native rejected them. | Bind original family and provenance IDs; reject rehashed alias derivatives. |
+| Native source-row validation did not bind the original provenance ID. | Compile source provenance IDs and reject a rehashed train record whose provenance alias was replaced. The regression first reproduced acceptance before the fix. |
 | Python `Decision.validate` admitted a relabeled `registered_evaluation` purpose. | Require `research_fixture`, matching the Native partition adapter. Public historical fixtures never gain sealed/release support. |
 | Legacy dataset name could select an arbitrary path outside the inventoried archive. | Admit only the four dataset names in the content-pinned dependency lock before any name-derived access. |
 | Large finite logits could overflow scaled softmax into NaN. | Reject logits outside the registered ±1,000,000 raw schema bound in Python and Native; reject nonnumeric/Boolean/out-of-range temperatures. |
@@ -19,7 +20,7 @@ dataset/codec/objective/provider boundaries and experiment accounting.
 
 ## Re-review boundary
 
-All 18 Python/native tests and the compiled binding CTest must pass without skips.
+All 19 Python/native tests and the compiled binding CTest must pass without skips.
 The native composition regression exercises all-unanswerable loss masking with
 invalid categorical targets, zero categorical gradients, positive answerability
 gradients, ties, near ties and nonfinite/out-of-bound decode rejection. The actual

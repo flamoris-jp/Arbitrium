@@ -63,7 +63,7 @@ require(std::find(f["aliases"].begin(),f["aliases"].end(),family)!=f["aliases"].
   c.verify_dataset_row=[source,manifest_digest,verify,dedup,group,hook](const Json& row,const Json& f,const Json& m,const Json& cfg){
     require(m["verification_profile"]==verify&&m["dedup_profile"]==dedup&&row["verification_profile"]==verify&&row["supersedes"].is_null()&&cfg["grouping"]==group&&cfg["hook"]==hook,"legacy verification profiles");
     const Json* old=nullptr;for(const auto& r:source["rows"])if(r["id"]==row["sample_id"]){old=&r;break;}
-    require(old&&(*old)["input"]==row["input"]&&(*old)["target"]==row["target"]&&(*old)["family"]==row["family_id"],"inventoried Decision row binding");
+    require(old&&(*old)["input"]==row["input"]&&(*old)["target"]==row["target"]&&(*old)["family"]==row["family_id"]&&(*old)["provenance_id"]==row["provenance_id"],"inventoried Decision row binding");
     auto root=Json{{"legacy_manifest",manifest_digest},{"legacy_family",(*old)["family"]}};require(f["roots"]==Json::array({Json{{"digest",sha256(canonical(root))},{"content",root}}}),"legacy root projection");
   };
   c.validate();return c;
