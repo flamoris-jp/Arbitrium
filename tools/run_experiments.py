@@ -6,6 +6,7 @@ sys.path.insert(0,str(ROOT/'python'))
 from arbitrium.composition import Decision,BUILD,IDENTITY,ref,component,TIME
 from arbitrium.legacy import SPLITS,ARCHIVE
 from arbitrium.metrics import diagnostic,reduce_predictions
+from arbitrium.provider import DecisionProvider
 from maidionis_education.contracts import canonical,digest,loads
 from maidionis_education.datasets import validate_dataset,evaluation_data
 from maidionis_education.artifacts import export_components,export_candidate,finalize,component_digest
@@ -57,6 +58,11 @@ def one(driver,d,data,dh,rows,root,config):
     before=run(driver,'validate',composition,candidate,cd,'offline_evaluation')
     if before['model_constructions']!=0:raise AssertionError('metadata validation allocation')
     loaded=run(driver,'infer',composition,candidate,cd,64*2**20,CAP,32*2**20,CAP,'none')
+    # Validate the actual admitted native envelopes across the separate provider
+    # boundary after the disposable host has exited; this grants no holder.
+    host_results={p['sample_id']:p['result'] for p in loaded['predictions']}
+    provider=DecisionProvider(d,cd,lambda request:host_results[request['request_id']])
+    for request in requests:provider.infer(request)
     selected=[r for r in rows if r['split']==split];native_logits=trained['best_logits'] if split=='train' else trained['dev_logits']
     if len(loaded['predictions'])!=len(selected):raise AssertionError('inference coverage')
     for x,y in zip(loaded['predictions'],native_logits):

@@ -24,6 +24,17 @@ caps address space/CPU/deadline, binds the trusted artifact digest and waits for
 process exit. It does not claim a Runtime receipt/holder transfer. Host permission
 and Workflow state remain outside the model.
 
+The experimental constructor is `DecisionProvider(decision, artifact_digest,
+host_infer)`, with an explicit source-backed `Decision`, a trusted SHA-256 bundle
+identity and the host callable. It checks canonical policy/question and token
+bounds before invoking the host, protects request identity against host mutation,
+and validates response binding, request-order probability coverage/normalization
+and research-only abstention. A generic schema registry alone is not a TaskSpec
+or an admission capability. Successful envelopes cannot claim `ok` in this
+uncalibrated reference profile. Logits are bounded to ±1,000,000; native and Python
+probability postprocessing use FP64 so near ties are not manufactured by FP32
+probability rounding. Model training and weights remain CPU FP32.
+
 The retained legacy partition is explicitly compiled, source-pinned, and confined
 to research fixtures. Native and Python reject unknown profiles, forged source
 rows/targets and incomplete family membership/counts. Core's normal fingerprint
