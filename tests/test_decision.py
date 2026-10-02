@@ -32,6 +32,7 @@ class DecisionTests(unittest.TestCase):
                 p=dict(ancestry=[d.legacy_digest,row['sample_id'],row['family_id']]);self.assertFalse(d.verify_row(row,p))
     def test_gate_ties_reordering_and_absent_release(self):
         out=postprocess([0,0,0,0],['stop','retry','fallback']);self.assertEqual(out['diagnostic_label'],'retry');self.assertEqual(out['status'],'abstain')
+        self.assertEqual(postprocess([0,1e-8,0,0])['diagnostic_label'],'fallback')
         self.assertEqual([x['label'] for x in out['probabilities']],['stop','retry','fallback'])
         self.assertEqual(postprocess([20,0,0,-20],tau_p=.5,tau_q=.5,accept_none=False)['reason_code'],'low_answerability')
         self.assertEqual(postprocess([20,0,0,20],tau_p=.5,tau_q=.5,accept_none=False)['verdict'],'retry')

@@ -23,12 +23,13 @@ int main(int argc,char** argv){try {
     auto loss=c.objective(logits,batch);loss.backward();auto gradient=logits.grad();
     if(!torch::isfinite(loss).item<bool>()||!gradient.slice(1,0,3).eq(0).all().item<bool>()||!gradient.slice(1,3,4).gt(0).all().item<bool>())throw std::runtime_error("masked Decision/answerability gradient");
     if(c.decode(torch::zeros({4},torch::kFloat32))["diagnostic_label"]!="retry")throw std::runtime_error("canonical Decision tie");
+    if(c.decode(torch::tensor({0.f,1e-8f,0.f,0.f}))["diagnostic_label"]!="fallback")throw std::runtime_error("rounded Decision tie");
     for(float value:{std::numeric_limits<float>::infinity(),std::numeric_limits<float>::quiet_NaN(),1000001.f}){
       auto bad=torch::zeros({4},torch::kFloat32);bad[0]=value;bool rejected=false;
       try{c.decode(bad);}catch(const std::invalid_argument&){rejected=true;}
       if(!rejected)throw std::runtime_error("unbounded/nonfinite Decision logits accepted");
     }
-    std::cout<<canonical(Json{{"masked_gradient",true},{"bounded_decode",true},{"canonical_tie",true}});return 0;
+    std::cout<<canonical(Json{{"masked_gradient",true},{"bounded_decode",true},{"canonical_tie",true},{"near_tie",true}});return 0;
   }
   if(argc==10&&std::string(argv[1])=="infer"){
     auto c=arbitrium::composition(argv[2]);ValidationContext validation{argv[4],true,"offline_evaluation",size_t(std::stoull(argv[5]))};

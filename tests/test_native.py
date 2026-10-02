@@ -17,7 +17,7 @@ class NativeDecision(unittest.TestCase):
     def tearDownClass(cls):cls.tmp.cleanup()
     def train(self,checkpoints,out,n,resume):return run(DRIVER,'train',self.data,self.dh,checkpoints,out,n,resume,self.cfg,'none')
     def test_actual_composition_masking_gradients_ties_and_bounds(self):
-        self.assertEqual(run(DRIVER,'composition-self-test',self.data),dict(masked_gradient=True,bounded_decode=True,canonical_tie=True))
+        self.assertEqual(run(DRIVER,'composition-self-test',self.data),dict(masked_gradient=True,bounded_decode=True,canonical_tie=True,near_tie=True))
     def test_codec_native_python_parity_reordering_and_bounds(self):
         self.assertEqual(run(DRIVER,'build-identity')['build_digest'],BUILD)
         x=payload(self.d.legacy_rows[0]);x['choices']=['stop','retry','fallback'];p=self.root/'request.json';p.write_bytes(canonical(x));out=run(DRIVER,'encode',self.data,p)
