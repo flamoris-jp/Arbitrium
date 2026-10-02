@@ -60,7 +60,7 @@ class Decision:
     def verify_row(self,row,p):
         old=self.source(row['input']);proof=self.proofs[old['provenance_id']]
         expected=decide(proof['facts'],proof.get('contradictory',False))
-        return row['target']==old['target']==expected and row['sample_id']==old['sample_id'] and p['ancestry']==[self.legacy_digest,old['sample_id'],old['family_id']] and row['supersedes'] is None
+        return row['target']==old['target']==expected and row['sample_id']==old['sample_id'] and row['family_id']==old['family_id'] and row['provenance_id']==old['provenance_id'] and p['ancestry']==[self.legacy_digest,old['sample_id'],old['family_id']] and row['supersedes'] is None
     def files(self):return dict({'descriptor.json':canonical(self.descriptor),'semantic.json':self.semantic},**{k+'.schema.json':canonical(v) for k,v in SCHEMAS.items()},**{k+'.config.json':canonical(v) for k,v in self.configs.items()})
     def assemble(self,x):
         self.registry.payload('input_schema',x)
@@ -76,6 +76,7 @@ class Decision:
         return tokens,segments
     def validate(self,root,trusted_digest):
         m,rows=validate_dataset(root,trusted_digest,self.registry,self.hooks)
+        if m['purpose']!='research_fixture':raise ValueError('legacy conversion is research only')
         if m['dataset_id']!=self.name+'.maidionis.v1' or len(rows)!=len(self.legacy_rows):raise ValueError('complete legacy conversion identity')
         for split in SPLITS:
             if m['counts'][split]['records']!=self.manifest['counts'][split]['records'] or m['counts'][split]['families']!=self.manifest['counts'][split]['families']:raise ValueError('original split coverage')

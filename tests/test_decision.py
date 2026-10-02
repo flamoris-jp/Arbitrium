@@ -5,7 +5,8 @@ from arbitrium.legacy import verify_archive,SPLITS
 from arbitrium.oracle import decide
 from arbitrium.metrics import diagnostic
 from arbitrium.postprocess import postprocess
-from maidionis_education.datasets import validate_dataset
+from maidionis_education.datasets import validate_dataset,freeze
+from maidionis_education.contracts import loads
 class DecisionTests(unittest.TestCase):
     def test_archive_complete_byte_integrity(self):self.assertEqual(len(verify_archive()['files']),130)
     def test_oracle_unknown_conflict_and_precedence(self):
@@ -32,6 +33,28 @@ class DecisionTests(unittest.TestCase):
         for raw in ([0,0,0],[float('nan'),0,0,0]):
             with self.assertRaises(ValueError):postprocess(raw)
         with self.assertRaises(ValueError):postprocess([0]*4,tau_p=.2,tau_q=.5,accept_none=False)
+    def test_original_family_and_provenance_aliases_cannot_be_rewritten(self):
+        d=Decision('recovery-current-tiny-v1')
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'data';d.freeze(root)
+            rows=[loads(line) for line in (root/'train.jsonl').read_bytes().splitlines()]
+            proofs=[loads(line) for line in (root/'provenance.jsonl').read_bytes().splitlines()]
+            byid={p['sample_id']:p for p in proofs}
+            for key in ('family_id','provenance_id'):
+                row=copy.deepcopy(rows[0]);row[key]='forged-alias'
+                self.assertFalse(d.verify_row(row,byid[row['sample_id']]))
+            for row in rows:row['family_id']='forged-family'
+            with self.assertRaises(ValueError):
+                freeze(Path(td)/'forged',rows,proofs,d.registry,d.hooks,d.files(),dataset_id=d.name+'.maidionis.v1',seed=42,created_at='2026-10-02T00:00:00Z',generator=dict(code_digest='a'*64,config_digest='b'*64),license_summary='Apache-2.0',limitations=['research'])
+    def test_legacy_dataset_cannot_claim_registered_evaluation(self):
+        d=Decision('recovery-current-tiny-v1')
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'data';d.freeze(root)
+            rows=[loads(line) for line in (root/'train.jsonl').read_bytes().splitlines()]
+            proofs=[loads(line) for line in (root/'provenance.jsonl').read_bytes().splitlines()]
+            promoted=Path(td)/'promoted'
+            h=freeze(promoted,rows,proofs,d.registry,d.hooks,d.files(),dataset_id=d.name+'.maidionis.v1',seed=42,created_at='2026-10-02T00:00:00Z',generator=dict(code_digest='a'*64,config_digest='b'*64),license_summary='Apache-2.0',limitations=['research'],purpose='registered_evaluation')
+            with self.assertRaises(ValueError):d.validate(promoted,h)
     def test_undefined_support_and_hand_counted_metrics(self):
         m=diagnostic([dict(target=dict(answerable=True,label='retry')),dict(target=dict(answerable=False,label=None))],[[20,0,0,20],[0,0,0,-20]])
         self.assertEqual(m['decision_accuracy'],1);self.assertEqual(m['unanswerable_recall'],1);self.assertIsNone(m['label_recall']['fallback']);self.assertIsNone(m['macro_f1'])
