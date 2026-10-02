@@ -2,15 +2,15 @@
 
 **A Maidionis Decision specialization for bounded advisory judgments over supplied evidence.**
 
-Arbitrium is intended to become the first Decision specialization built on Maidionis.
+Arbitrium is the first experimental Decision specialization built on Maidionis.
 
 It owns Decision-specific TaskSpecs, curricula, experiment reports, measured results, failure analysis, and specialization metadata. Specialization-neutral model/training/evaluation infrastructure belongs in Maidionis. Workflow execution and runtime orchestration belong in FLAMORIS AI Runtime.
 
 ## Current status
 
-**Bootstrap / research migration planning.**
+**Initial A1–A3 offline CPU implementation and controlled research comparison.**
 
-The public repository does not yet contain the migrated implementation or experiment archive.
+The repository preserves the historical research archive and implements an explicit Decision composition on pinned Maidionis Core. See [implementation status](docs/implementation-status.md), [architecture](docs/architecture.md) and [comparison results](research/public-architecture/comparison.md). Runtime integration and production model qualification remain separate.
 
 Existing controlled research shows that a tightly bounded train-only curriculum can be fitted. It does **not** establish reliable held-out generalization or production quality.
 
@@ -48,15 +48,13 @@ Do not import the previous research Git history wholesale.
 
 Public migration uses new commits while preserving research meaning, dataset identity, hashes, seeds, metrics, and known failures.
 
-Implementation migration should wait for the relevant Maidionis Core contracts so specialization-neutral code can move into Maidionis instead of being duplicated here.
+The live implementation links specialization-neutral Maidionis Core. Historical source under `research/legacy` remains an integrity-checked archive, with separate legacy readers and new-format derived dataset identities.
 
 Repository setup and migration are tracked in [Issue #1](https://github.com/flamoris-jp/Arbitrium/issues/1) and [Research migration](docs/research-migration.md).
 
 ## Getting started
 
-There is no supported public build or run command yet.
-
-Do not copy commands from earlier research material until the corresponding implementation has been migrated and verified in this repository.
+Use [the supported Linux CPU build and verification instructions](docs/build.md). Offline verification exercises real training/checkpoints, admitted archive loading, complete evaluation and research finalization. The initial codec and artifact format are experimental; no calibrated serving or Runtime R1 is claimed.
 
 ## FLAMORIS
 
